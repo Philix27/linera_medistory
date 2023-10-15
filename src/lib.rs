@@ -8,10 +8,10 @@ use linera_sdk::{
 use linera_views::{common::CustomSerialize, views};
 use serde::{Deserialize, Serialize};
 
-pub struct MedplusAbi;
+pub struct MedistoryAbi;
 
 // linera project publish-and-create --json-argument "null"
-impl ContractAbi for MedplusAbi {
+impl ContractAbi for MedistoryAbi {
     type Parameters = ();
     type InitializationArgument = ();
     type Operation = Operation;
@@ -22,7 +22,7 @@ impl ContractAbi for MedplusAbi {
     type Response = ();
 }
 
-impl ServiceAbi for MedplusAbi {
+impl ServiceAbi for MedistoryAbi {
     type Parameters = ();
     type Query = ();
     type QueryResponse = ();

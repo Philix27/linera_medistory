@@ -4,7 +4,7 @@ mod case_note;
 mod errors;
 mod state;
 
-use self::state::MedPlus;
+use self::state::Medistory;
 use async_trait::async_trait;
 use errors::ContractError;
 use linera_sdk::{
@@ -13,22 +13,22 @@ use linera_sdk::{
     ApplicationCallResult, CalleeContext, Contract, ExecutionResult, MessageContext,
     OperationContext, SessionCallResult, ViewStateStorage,
 };
-use medplus::case_note::key::Key;
-use medplus::case_note::note::OwnPost;
-use medplus::Message;
-linera_sdk::contract!(MedPlus);
+use medistory::case_note::key::Key;
+use medistory::case_note::note::OwnPost;
+use medistory::Message;
+linera_sdk::contract!(Medistory);
 
 /// The channel name the application uses for cross-chain messages about new posts.
 const POSTS_CHANNEL_NAME: &[u8] = b"posts";
 /// The number of recent posts sent in each cross-chain message.
 const RECENT_POSTS: usize = 10;
 
-impl WithContractAbi for MedPlus {
-    type Abi = medplus::MedplusAbi;
+impl WithContractAbi for Medistory {
+    type Abi = medistory::MedistoryAbi;
 }
 
 #[async_trait]
-impl Contract for MedPlus {
+impl Contract for Medistory {
     type Error = ContractError;
     type Storage = ViewStateStorage<Self>;
 
@@ -78,7 +78,7 @@ impl Contract for MedPlus {
     }
 }
 
-impl MedPlus {
+impl Medistory {
     async fn execute_post_operation(
         &mut self,
         text: String,

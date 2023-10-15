@@ -1,5 +1,5 @@
 [package]
-name = "medplus"
+name = "medistory"
 version = "0.1.0"
 edition = "2021"
 
@@ -19,11 +19,11 @@ linera-sdk = { version = "0.4.1", features = ["test"] }
 webassembly-test = "0.1.0"
 
 [[bin]]
-name = "medplus_contract"
+name = "medistory_contract"
 path = "src/contract.rs"
 
 [[bin]]
-name = "medplus_service"
+name = "medistory_service"
 path = "src/service.rs"
 
 [profile.release]

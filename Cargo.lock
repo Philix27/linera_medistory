@@ -1580,7 +1580,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "medplus"
+name = "medistory"
 version = "0.1.0"
 dependencies = [
  "async-graphql",

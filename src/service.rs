@@ -3,7 +3,7 @@
 mod errors;
 mod state;
 
-use self::state::MedPlus;
+use self::state::Medistory;
 // use async_graphql::EmptySubscription;
 // use async_graphql::Schema;
 use async_trait::async_trait;
@@ -12,14 +12,14 @@ use errors::ServiceError;
 use linera_sdk::{base::WithServiceAbi, QueryContext, Service, ViewStateStorage};
 use std::sync::Arc;
 
-linera_sdk::service!(MedPlus);
+linera_sdk::service!(Medistory);
 
-impl WithServiceAbi for MedPlus {
-    type Abi = medplus::MedplusAbi;
+impl WithServiceAbi for Medistory {
+    type Abi = medistory::MedistoryAbi;
 }
 
 #[async_trait]
-impl Service for MedPlus {
+impl Service for Medistory {
     type Error = ServiceError;
     type Storage = ViewStateStorage<Self>;
 
