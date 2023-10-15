@@ -1,8 +1,10 @@
+use linera_sdk::views::{CustomMapView, LogView};
 use linera_sdk::{
     base::{Amount, Owner},
     views::{MapView, ViewStorageContext},
 };
 use linera_views::views::{GraphQLView, RootView};
+use medplus::{Key, OwnPost};
 use thiserror::Error;
 
 //   - Defines the application's state
@@ -10,10 +12,12 @@ use thiserror::Error;
 #[view(context = "ViewStorageContext")]
 pub struct MedPlus {
     pub accounts: MapView<Owner, Amount>,
+    pub own_posts: LogView<OwnPost>,
+    pub received_posts: CustomMapView<Key, String>,
 }
 
 impl MedPlus {
-    pub async fn initialize_accounts(&mut self, owner: Owner, amount: Amount) {
+    pub fn initialize_accounts(&mut self, owner: Owner, amount: Amount) {
         self.accounts
             .insert(&owner, amount)
             .expect("Error in insert statement")
@@ -24,27 +28,6 @@ impl MedPlus {
             .await
             .expect("Error in insert statement")
             .unwrap_or_default()
-    }
-    pub async fn credit(&mut self, account: Owner, amount: Amount) {
-        let mut bal = self.balance(&account).await;
-        bal.saturating_add_assign(amount);
-        self.accounts
-            .insert(&account, bal)
-            .expect("Failed to credit")
-    }
-    pub async fn withdraw(
-        &mut self,
-        account: Owner,
-        amount: Amount,
-    ) -> Result<(), InsufficientBalanceError> {
-        let mut balance = self.balance(&account).await;
-        balance
-            .try_sub_assign(amount)
-            .map_err(|_| InsufficientBalanceError)?;
-        self.accounts
-            .insert(&account, balance)
-            .expect("Failed insertion operation");
-        Ok(())
     }
 }
 

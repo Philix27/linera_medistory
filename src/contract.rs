@@ -1,17 +1,24 @@
 #![cfg_attr(target_arch = "wasm32", no_main)]
-//   - Defines the smart contract of the application
+
+mod errors;
 mod state;
 
 use self::state::MedPlus;
 use async_trait::async_trait;
+use errors::ContractError;
 use linera_sdk::{
-    base::{SessionId, WithContractAbi},
+    base::{ChannelName, Destination, SessionId, WithContractAbi},
+    contract::system_api,
     ApplicationCallResult, CalleeContext, Contract, ExecutionResult, MessageContext,
     OperationContext, SessionCallResult, ViewStateStorage,
 };
-use thiserror::Error;
-
+use medplus::{Key, Message, OwnPost};
 linera_sdk::contract!(MedPlus);
+
+/// The channel name the application uses for cross-chain messages about new posts.
+const POSTS_CHANNEL_NAME: &[u8] = b"posts";
+/// The number of recent posts sent in each cross-chain message.
+const RECENT_POSTS: usize = 10;
 
 impl WithContractAbi for MedPlus {
     type Abi = medplus::MedplusAbi;
@@ -64,25 +71,59 @@ impl Contract for MedPlus {
         _forwarded_sessions: Vec<SessionId>,
     ) -> Result<SessionCallResult<Self::Message, Self::Response, Self::SessionState>, Self::Error>
     {
-        Ok(SessionCallResult::default())
+        Err(ContractError::SessionsNotSupported)
     }
 }
 
-pub struct HealthCenter;
-impl HealthCenter {}
+impl MedPlus {
+    async fn execute_post_operation(
+        &mut self,
+        text: String,
+    ) -> Result<ExecutionResult<Message>, errors::ContractError> {
+        let timestamp = system_api::current_system_time();
+        self.own_posts.push(OwnPost { timestamp, text });
+        let count = self.own_posts.count();
 
-/// An error that can occur during the contract execution.
-#[derive(Debug, Error)]
-pub enum ContractError {
-    /// Failed to deserialize BCS bytes
-    #[error("Failed to deserialize BCS bytes")]
-    BcsError(#[from] bcs::Error),
+        let mut posts: Vec<OwnPost> = vec![];
 
-    /// Failed to deserialize JSON string
-    #[error("Failed to deserialize JSON string")]
-    JsonError(#[from] serde_json::Error),
+        for index in (0..count).rev().take(RECENT_POSTS) {
+            let maybe_post = self.own_posts.get(index).await;
+            let own_post = maybe_post
+                .expect("post with valid index missing; this is a bug in the social application!");
 
-    #[error("Insufficient Balance Error")]
-    InsufficientBalanceError(),
-    // Add more error variants here.
+            match own_post {
+                Some(val) => {
+                    posts.push(val);
+                }
+                None => {}
+            }
+        }
+
+        let count = count as u64;
+        let dest = Destination::Subscribers(ChannelName::from(POSTS_CHANNEL_NAME.to_vec()));
+        Ok(ExecutionResult::default().with_message(
+            dest,
+            Message::CaseNotes {
+                count,
+                posts: posts,
+            },
+        ))
+    }
+
+    fn execute_posts_message(
+        &mut self,
+        context: &MessageContext,
+        count: u64,
+        posts: Vec<OwnPost>,
+    ) -> Result<(), errors::ContractError> {
+        for (index, post) in (0..count).rev().zip(posts) {
+            let key = Key {
+                timestamp: post.timestamp,
+                author: context.message_id.chain_id,
+                index,
+            };
+            self.received_posts.insert(&key, post.text);
+        }
+        Ok(())
+    }
 }
