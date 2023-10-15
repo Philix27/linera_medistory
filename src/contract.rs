@@ -1,5 +1,6 @@
 #![cfg_attr(target_arch = "wasm32", no_main)]
 
+mod case_note;
 mod errors;
 mod state;
 
@@ -12,7 +13,9 @@ use linera_sdk::{
     ApplicationCallResult, CalleeContext, Contract, ExecutionResult, MessageContext,
     OperationContext, SessionCallResult, ViewStateStorage,
 };
-use medplus::{Key, Message, OwnPost};
+use medplus::case_note::key::Key;
+use medplus::case_note::note::OwnPost;
+use medplus::Message;
 linera_sdk::contract!(MedPlus);
 
 /// The channel name the application uses for cross-chain messages about new posts.

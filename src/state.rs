@@ -4,7 +4,9 @@ use linera_sdk::{
     views::{MapView, ViewStorageContext},
 };
 use linera_views::views::{GraphQLView, RootView};
-use medplus::{Key, OwnPost};
+use medplus::case_note::key::Key;
+use medplus::case_note::note::OwnPost;
+// use medplus::Key;
 use thiserror::Error;
 
 //   - Defines the application's state
