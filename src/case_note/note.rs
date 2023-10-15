@@ -12,7 +12,7 @@ pub struct OwnCaseNotes {
 
 /// A post's text and timestamp, to use in contexts where author and index are known.
 #[derive(PartialEq, Debug, Clone, Serialize, Deserialize, SimpleObject)]
-pub struct OwnPost {
+pub struct OwnFile {
     /// The timestamp of the block in which the post operation was included.
     pub timestamp: Timestamp,
     /// The posted text.
@@ -21,7 +21,7 @@ pub struct OwnPost {
 
 /// A post on the social app.
 #[derive(Clone, PartialEq, Debug, Serialize, Deserialize)]
-pub struct Post {
+pub struct File {
     /// The key identifying the post, including the timestamp, author and index.
     pub key: Key,
     /// The post's text content.

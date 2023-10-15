@@ -1,0 +1,86 @@
+@import "../../../styles//variables";
+@import "../../../styles//screensize";
+
+.container {
+  min-height: calc(100vh - 0px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $primaryColor;
+
+  .inner_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    @include mobileSS {
+      padding-top: 0px;
+      width: 90%;
+      flex-direction: column;
+    }
+    .image {
+      width: 50%;
+      display: flex;
+      align-items: flex-start;
+      @include mobileSS {
+        width: 70%;
+        padding-top: 40px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        height: 500px;
+        @include mobileSS {
+          height: 350px;
+        }
+      }
+    }
+    .text_content {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-bottom: 50px;
+      @include mobileSS {
+        width: 90%;
+        align-items: center;
+        text-align: center;
+      }
+      h1 {
+        font-size: 4rem;
+        padding-bottom: 40px;
+        color: $primaryColor;
+        @include mobileSS {
+          font-size: 3rem;
+        }
+      }
+      p {
+        font-size: 26px;
+        font-weight: 100;
+        padding-bottom: 40px;
+        @include mobileSS {
+          font-size: 20px;
+        }
+      }
+      .link {
+        padding-bottom: 40px;
+        input {
+          padding: 15px 35px;
+          border-style: none;
+          border-radius: 5px;
+          background-color: $primaryColor;
+          color: #fff;
+          &:hover {
+            color: #fff;
+            background-color: $backgroundColor;
+            border: 2px solid #fff;
+          }
+        }
+      }
+    }
+  }
+}

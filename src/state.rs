@@ -5,7 +5,7 @@ use linera_sdk::{
 };
 use linera_views::views::{GraphQLView, RootView};
 use medistory::case_note::key::Key;
-use medistory::case_note::note::OwnPost;
+use medistory::case_note::note::OwnFile;
 // use medplus::Key;
 use thiserror::Error;
 
@@ -14,7 +14,7 @@ use thiserror::Error;
 #[view(context = "ViewStorageContext")]
 pub struct Medistory {
     pub accounts: MapView<Owner, Amount>,
-    pub own_posts: LogView<OwnPost>,
+    pub own_posts: LogView<OwnFile>,
     pub received_posts: CustomMapView<Key, String>,
 }
 

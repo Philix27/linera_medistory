@@ -1,0 +1,96 @@
+@import "../../../styles//variables";
+@import "../../../styles//screensize";
+
+.container {
+  width: 100%;
+  // min-height: calc(100vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+  .inner_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 40px;
+    width: 80%;
+    height: 100%;
+    // padding-top: 20vh;
+    @include mobileSS {
+      grid-template-columns: 1fr;
+      row-gap: 20px;
+      padding-top: 0px;
+      width: 90%;
+      flex-direction: column;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $cardColor;
+      margin: 0 20px;
+      border-radius: 10px;
+      padding: 20px;
+      border: solid 0.1px $greyColor;
+      &:hover {
+        background-color: $primaryColor;
+        color: $backgroundColor;
+        .text_content {
+          h3 {
+            color: $backgroundColor;
+          }
+        }
+
+        p {
+          color: $backgroundColor;
+        }
+        .image {
+          svg {
+            color: $backgroundColor;
+          }
+        }
+      }
+      @include mobileSS {
+        margin-bottom: 20px;
+      }
+      .image {
+        display: flex;
+        padding-bottom: 20px;
+        width: 100%;
+        @include mobileSS {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        svg {
+          border-radius: 10px 10px 0 0px;
+          width: 100%;
+          size: 50px;
+          font-size: 50px;
+          color: $primaryColor;
+          @include mobileSS {
+            // height: 400px;
+          }
+        }
+      }
+      .text_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        color: $fontColor;
+        @include mobileSS {
+          width: 90%;
+        }
+        h3 {
+          font-size: 20px;
+          color: $primaryColor;
+        }
+        p {
+          font-size: 17px;
+          font-weight: 100;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}

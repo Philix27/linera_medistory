@@ -1,0 +1,49 @@
+@import "../../styles/variables";
+@import "../../styles/screensize";
+
+.form_comp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  .content {
+    min-width: 80%;
+    .field {
+      display: flex;
+      background-color: $backgroundColor;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 10px;
+      input {
+        background-color: $backgroundColor;
+        outline: none;
+        border: none;
+        color: $fontGrey;
+        border-radius: 10px;
+        width: 100%;
+        padding: 5px 10px;
+        font-size: larger;
+      }
+      textarea {
+        background-color: $backgroundColor;
+        outline: none;
+        border: none;
+        color: $fontGrey;
+        border-radius: 10px;
+        width: 100%;
+        padding: 5px 10px;
+        font-size: larger;
+        min-height: 200px;
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

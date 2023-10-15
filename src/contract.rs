@@ -14,7 +14,7 @@ use linera_sdk::{
     OperationContext, SessionCallResult, ViewStateStorage,
 };
 use medistory::case_note::key::Key;
-use medistory::case_note::note::OwnPost;
+use medistory::case_note::note::OwnFile;
 use medistory::Message;
 linera_sdk::contract!(Medistory);
 
@@ -78,16 +78,16 @@ impl Contract for Medistory {
     }
 }
 
-impl Medistory {
+impl Medistory  {
     async fn execute_post_operation(
         &mut self,
         text: String,
     ) -> Result<ExecutionResult<Message>, errors::ContractError> {
         let timestamp = system_api::current_system_time();
-        self.own_posts.push(OwnPost { timestamp, text });
+        self.own_posts.push(OwnFile { timestamp, text });
         let count = self.own_posts.count();
 
-        let mut posts: Vec<OwnPost> = vec![];
+        let mut posts: Vec<OwnFile> = vec![];
 
         for index in (0..count).rev().take(RECENT_POSTS) {
             let maybe_post = self.own_posts.get(index).await;
@@ -117,7 +117,7 @@ impl Medistory {
         &mut self,
         context: &MessageContext,
         count: u64,
-        posts: Vec<OwnPost>,
+        posts: Vec<OwnFile>,
     ) -> Result<(), errors::ContractError> {
         for (index, post) in (0..count).rev().zip(posts) {
             let key = Key {

@@ -1,0 +1,21 @@
+@import "../../styles//variables";
+@import "../../styles//screensize";
+
+.link {
+  input {
+    padding: 10px 35px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: $primaryColor;
+    border: 1px solid $primaryColor;
+    color: $backgroundColor;
+    @include mobileSS {
+      padding: 10px 28px;
+    }
+    &:hover {
+      color: $fontColor;
+      background-color: $backgroundColor;
+      border: 1px solid $primaryColor;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+export const ALFAJORES_RPC = "https://alfajores-forno.celo-testnet.org";
+export const ALFAJORES_ACCOUNT = "";
+export const ALFAJORES_ACCOUNT_PK = "";
+export const FA_PROXY_ADDRESS = "";
+export const ESCROW_PROXY_ADDRESS = "";
+export const ODIS_PAYMENT_PROXY_ADDRESS = "";
+export const ALFAJORES_CUSD_ADDRESS = "";
+export const ACCOUNTS_PROXY_ADDRESS = "";
+export const ISSUER_PRIVATE_KEY = "";
+export const DEK_PUBLIC_KEY = "";
+export const DEK_PRIVATE_KEY = "";

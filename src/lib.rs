@@ -1,11 +1,9 @@
 pub mod case_note;
-use async_graphql::{InputObject, SimpleObject};
-use case_note::note::OwnPost;
+use case_note::note::OwnFile;
 use linera_sdk::{
     base::{ChainId, ContractAbi, ServiceAbi, Timestamp},
     graphql::GraphQLMutationRoot,
 };
-use linera_views::{common::CustomSerialize, views};
 use serde::{Deserialize, Serialize};
 
 pub struct MedistoryAbi;
@@ -39,6 +37,5 @@ pub enum Operation {
 pub enum Message {
     RequestSubscribe,
     RequestUnsubscribe,
-    CaseNotes { count: u64, posts: Vec<OwnPost> },
+    CaseNotes { count: u64, posts: Vec<OwnFile> },
 }
-

@@ -1,0 +1,81 @@
+@import "../../../styles//variables";
+@import "../../../styles//screensize";
+
+.container {
+  width: 100%;
+  // min-height: calc(100vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  .inner_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 100%;
+    // padding-top: 20vh;
+    @include mobileSS {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0px;
+      width: 90%;
+      flex-direction: column;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $cardColor;
+      margin: 0 20px;
+      border-radius: 10px;
+      &:hover {
+        border: solid #fff 1px;
+      }
+
+      @include mobileSS {
+        margin-bottom: 20px;
+      }
+      .image {
+        align-items: flex-start;
+        @include mobileSS {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        img {
+          border-radius: 10px 10px 0 0px;
+          // width: 100%;
+          // height: 400px;
+          // filter: grayscale(100%) sepia(100%) hue-rotate(243deg) saturate(100%);
+          // filter: grayscale(0%);
+          @include mobileSS {
+            aspect-ratio: 9/8;
+          }
+        }
+      }
+      .text_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 10px 20px;
+        color: $fontColor;
+        @include mobileSS {
+          width: 90%;
+        }
+        h3 {
+          font-size: 20px;
+          color: $primaryColor;
+        }
+        p {
+          font-size: 17px;
+          font-weight: 100;
+          padding-bottom: 20px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

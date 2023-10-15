@@ -1,0 +1,95 @@
+@import "../../../styles//variables";
+@import "../../../styles//screensize";
+
+@mixin app_links {
+  p {
+    padding: 0px 20px;
+    line-height: 70px;
+    font-size: large;
+    border-bottom: 2px solid $backgroundColor;
+    @include mobileSS {
+      padding: 10px 20px;
+      background-color: $backgroundColor;
+      border-bottom: 0.1px solid $greyColor;
+    }
+    &:hover {
+      // background-color: #4a4444;
+      border-bottom: 2px solid $primaryColor;
+    }
+    a {
+      color: #fff;
+    }
+  }
+  @include mobileSS {
+    display: none;
+  }
+}
+.container {
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: $secondaryColor;
+  .inner_container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // background-color: aquamarine;
+    padding: 10px 0;
+    .logo {
+      color: #fff;
+      a {
+        color: #fff;
+        font-weight: 900;
+        font-size: larger;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+    }
+    .menu {
+      display: none;
+      // font-size: 28px;
+      @include mobileSS {
+        display: flex;
+      }
+    }
+    .no_link {
+      display: flex;
+      @include app_links;
+    }
+    .links {
+      display: flex;
+      @include mobileSS {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.271);
+        width: 100vw;
+        height: 100%;
+        z-index: 3;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        border-bottom: 1px solid $secondaryColor;
+      }
+      p {
+        font-size: large;
+        @include mobileSS {
+          padding: 10px 20px;
+          background-color: $backgroundColor;
+          border-bottom: 0.1px solid $greyColor;
+        }
+        &:hover {
+          // background-color: #4a4444;
+          border-bottom: 2px solid $primaryColor;
+        }
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;900&family=Roboto:wght@300;400;500;900&display=swap");
+
+// ? Colors
+$backgroundColor: rgb(244, 224, 206);
+$cardColor: rgb(227, 120, 21);
+$greyColor: #514e45;
+$primaryColor: rgb(227, 120, 21);
+$secondaryColor: rgb(177, 98, 24);
+$primaryDarkColor: #b38300;
+$fadeFontColor: #799279;
+$fontColor: #fff;
+$bigFontColor: #404346;
+$primaryRed: #ee1919;
+$primaryBlue: #006fff;
+$primaryOrange: #bf8c0a;
+$tertiary1000: #1a1a1a;
+$fontFamily: "Manrope", sans-serif;
+$fontGrey: #5f5d5d;
+
+$fontWeight: (
+  "regular": 300,
+  "medium": 500,
+  "semi-bold": 700,
+  "bold": 800,
+);
+
+@function f-weight($weightName) {
+  @return map-get($fontWeight, $weightName);
+}
+
+$fontSize: (
+  "large": 5.5rem,
+  "medium": 4.5rem,
+  "small": 3rem,
+);
+
+@function f-size($font-size) {
+  @return map-get($fontSize, $font-size);
+}

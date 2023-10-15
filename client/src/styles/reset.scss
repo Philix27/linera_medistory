@@ -1,0 +1,71 @@
+@import "variables";
+@import "screensize";
+
+:root {
+  --pFont: 1.8rem;
+
+  @include tabletSS {
+    --pFont: 1.5rem;
+  }
+  @include mobileSS {
+    --pFont: 1.3rem;
+  }
+  --fontFamily: "Manrope", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1.6rem;
+  background-color: $backgroundColor;
+  color: $fontColor;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: "Inter";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: $fontFamily;
+  padding-bottom: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+.none {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Works for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

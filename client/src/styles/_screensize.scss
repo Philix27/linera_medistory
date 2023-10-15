@@ -1,0 +1,50 @@
+// ? ScreenSizes
+$mobileScreensize: 640px;
+$tabletScreensize: 768px;
+$smallLaptopScreensize: 1090px;
+$midLaptopScreensize: 1400px;
+$laptopScreensize: 1940px;
+$laptopScreensize2: 1040px;
+$largeScreensize: 1540px;
+
+@mixin mobileSS() {
+  @media (max-width: $mobileScreensize) {
+    @content;
+  }
+}
+
+@mixin tabletSS() {
+  @media (max-width: $tabletScreensize) {
+    @content;
+  }
+}
+
+@mixin smallLaptopSS() {
+  @media (max-width: $smallLaptopScreensize) {
+    @content;
+  }
+}
+
+@mixin midLaptopSS() {
+  @media (max-width: $midLaptopScreensize) {
+    @content;
+  }
+}
+
+
+@mixin bigTabSS() {
+  @media (max-width: $laptopScreensize2) {
+    @content;
+  }
+}
+
+@mixin laptopSS() {
+  @media (max-width: $laptopScreensize) {
+    @content;
+  }
+}
+@mixin largeSS() {
+  @media (max-width: $largeScreensize) {
+    @content;
+  }
+}
