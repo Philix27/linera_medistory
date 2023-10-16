@@ -5,12 +5,8 @@ import SendMsg from "./form_comp";
 import MessagesList from "./msg";
 
 export default function WrapView() {
-  const signer = useSigner();
   const [isFormActive, setFormActive] = useState(true);
-  const [tokenValue, setTokenValue] = useState({
-    base_coin: 1,
-    converted_token: 1,
-  });
+
   const handleSubmit = () => {};
 
   return (

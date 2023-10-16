@@ -9,6 +9,7 @@ use serde::{Deserialize, Serialize};
 pub struct MedistoryAbi;
 
 // linera project publish-and-create --json-argument "null"
+// Default chain e476187f6ddfeb9d588c7b45d3df334d5501d6499b3f9ad5595cae86cce16a65
 impl ContractAbi for MedistoryAbi {
     type Parameters = ();
     type InitializationArgument = ();

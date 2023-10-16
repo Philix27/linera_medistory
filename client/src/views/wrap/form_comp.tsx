@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./send.module.scss";
 import { Button } from "comp/button";
-import ProfileNavbar from "comp/navbar";
-import { useSigner } from "@thirdweb-dev/react";
 
 export default function SendMsg() {
-  const [isWrap, setIsWrap] = useState(true);
   const [val, setValue] = useState({
     address: "",
     message: "",
@@ -30,10 +27,10 @@ export default function SendMsg() {
         </div>
         <div className={styles.field}>
           <textarea
-            placeholder="Message to friend"
+            placeholder="Patients data"
             maxLength={100}
             onChange={(e) => {
-              console.log(e.target.value)
+              console.log(e.target.value);
               setValue((prev) => ({
                 ...prev,
                 message: e.target.value,

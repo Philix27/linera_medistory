@@ -10,28 +10,33 @@ export default function UseCaseView() {
       <div className={styles.inner_container}>
         {cardItem({
           icon: <AiFillSecurityScan />,
-          title: "For employees",
-          p: "Receive your salary as you work in realtime. You don't have to wait till the end of the month to get paid.",
+          title: "For Patients",
+          p: "Manage all your medical records in one place.",
         })}
         {cardItem({
           icon: <AiFillAppstore />,
-          title: "For family",
-          p: "Settle reoccurring family expenses by setting up streams with sends money periodically.",
+          title: "For Hospitals",
+          p: "Save physical space and labour in managing patients record.",
         })}
         {cardItem({
           icon: <AiFillSecurityScan />,
-          title: "For subscription based systems",
-          p: "Can be embedded in subscription based systems. Where you pay as you use.",
+          title: "For Pharmacist",
+          p: "Can access your patient's routine drugs and enable you checkup on them",
         })}
         {cardItem({
           icon: <AiFillSecurityScan />,
-          title: "For streaming platforms",
-          p: "A perfect way to implement a pay-as-you-go platform",
+          title: "For Doctors",
+          p: "Get better insight on your patient's laboratory readings, medication and medical history before making diagnosis.",
         })}
         {cardItem({
           icon: <AiFillSecurityScan />,
-          title: "For employers",
+          title: "For Nurses",
           p: "Enables you focus on more important task as you automate payment of bills using superfluid.",
+        })}
+        {cardItem({
+          icon: <AiFillSecurityScan />,
+          title: "For Lab scientist",
+          p: "Guide you in making the best decisions prior to carrying out any findings.",
         })}
       </div>
     </section>

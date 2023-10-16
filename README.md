@@ -5,6 +5,7 @@
 ### A linera hackathon
 
 Medistory: a short name for Medical History.
+video_link: [Linera Demo Video](https://www.loom.com/share/2f82728b239f484ca5fc96aa814c318e?sid=8c67b90c-7a3e-4e51-b10a-1496e95cbd75)
 
 ### Problem Statement
 
@@ -27,9 +28,10 @@ This project aims to solve this problem by saving the patients data on the block
   **Step 2**
 
 - Clone this repo.
-- Then cd into the backend folder and run `cargo build` to ensure it is not broken.
+- Run `cargo build` to ensure it is not broken.
 
   **Step 3**
 
+- cd into client
 - Run `yarn` to install all node modules and packages
 - Run `yarn dev` to spin up the frontend

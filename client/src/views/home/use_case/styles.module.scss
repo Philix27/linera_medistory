@@ -41,13 +41,9 @@
       padding: 20px;
       border: solid 0.1px $greyColor;
       &:hover {
-        background-color: $primaryColor;
-        color: $backgroundColor;
-        .text_content {
-          h3 {
-            color: $backgroundColor;
-          }
-        }
+        // background-color: $primaryColor;
+        // color: $backgroundColor;
+        border: solid 0.5px $primaryColor;
 
         p {
           color: $backgroundColor;
@@ -92,7 +88,7 @@
         }
         h3 {
           font-size: 20px;
-          color: $primaryColor;
+          color: $fontColor;
         }
         p {
           font-size: 17px;
