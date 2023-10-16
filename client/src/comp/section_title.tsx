@@ -1,16 +1,12 @@
 import { styled } from "styled-components";
 
 export function SectionTitle(name: string) {
-  return (
-    <Div>
-      <h1>{name}</h1>
-    </Div>
-  );
+  return <H1>{name}</H1>;
 }
 
-const Div = styled.div`
-  width: 80%;
-  display: flex;
-  padding: 20px 0;
-  color: #ddb206;
+const H1 = styled.h1`
+  font-size: 3.5rem;
+  padding-bottom: 40px;
+  color: AppColor;
+  font-weight: 800;
 `;

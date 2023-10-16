@@ -1,5 +1,5 @@
 {
-  "name": "Phun",
+  "name": "Medistory",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -31,16 +31,13 @@
      "web3": "^1.5.2"
   },
   "devDependencies": {
-    "@matterlabs/hardhat-zksync-solc": "^0.3.17",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.7",
-    "hardhat": "^2.13.0",
     "postcss": "8.4.24",
-    "prisma": "^4.11.0",
     "typescript": "5.1.6"
   }
 }

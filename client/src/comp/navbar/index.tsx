@@ -19,7 +19,7 @@ export default function ProfileNavbar() {
       <div className={styles.inner_container}>
         <div className={styles.logo}>
           <Link href={"/"}>
-            <h3>Paysync</h3>
+            <h3>Medistory</h3>
           </Link>
         </div>
         {showModal ? (

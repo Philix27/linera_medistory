@@ -15,7 +15,7 @@ export default function WrapView() {
 
   return (
     <div className={styles.container} id="container">
-      <h1>Chat Anonymously</h1>
+      <h1>Case File</h1>
       <div className={styles.inner_container}>
         <div className={styles.top}>
           <div className={styles.buttons}>
@@ -23,13 +23,13 @@ export default function WrapView() {
               onClick={() => setFormActive(true)}
               className={isFormActive ? styles.active : ""}
             >
-              Send Message
+              {`Dr's Corner`}
             </p>
             <p
               onClick={() => setFormActive(false)}
               className={!isFormActive ? styles.active : ""}
             >
-              Your messages
+              Your Record
             </p>
           </div>
           {/* <div>

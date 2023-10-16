@@ -53,7 +53,7 @@
       h1 {
         font-size: 4rem;
         padding-bottom: 40px;
-        color: $primaryColor;
+        // color: $primaryColor;
         @include mobileSS {
           font-size: 3rem;
         }

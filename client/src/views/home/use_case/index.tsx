@@ -6,6 +6,7 @@ import { AiFillAppstore, AiFillSecurityScan } from "react-icons/ai";
 export default function UseCaseView() {
   return (
     <section className={styles.container} id={"use_case"}>
+      <h1>Use case</h1>
       <div className={styles.inner_container}>
         {cardItem({
           icon: <AiFillSecurityScan />,

@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { Button } from "comp/button";
 
 type T = {
+  title: string;
   list: {
     img: string;
     title: string;
@@ -11,7 +12,8 @@ type T = {
 };
 export default function CardsView(props: T) {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="#solutions">
+      <h1>{props.title}</h1>
       <div className={styles.inner_container}>
         {props.list.map((v, i) =>
           cardItem({
